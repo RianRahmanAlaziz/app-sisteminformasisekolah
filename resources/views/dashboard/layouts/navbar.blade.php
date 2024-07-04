@@ -55,18 +55,25 @@
                 <li class="nav-item dropdown ps-2 d-flex align-items-center">
                     <a href="javascript:;" class="nav-link text-body p-0" id="a" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        <img src="/assets/img/team-2.jpg" class="avatar avatar-sm" alt="avatar" />
+                        @if (auth()->user()->hasRole('Guru'))
+                            <img src="/assets/img/guru/{{ auth()->user()->guru->gambar }}" class="avatar avatar-sm"
+                                alt="avatar" />
+                        @else
+                            <img src="/assets/img/team-2.jpg" class="avatar avatar-sm" alt="avatar" />
+                        @endif
                     </a>
                     <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="a">
                         <li class="mb-2">
                             <a href="/" class="dropdown-item border-radius-md"><i class="fa-solid fa-house"></i>
                                 Home</a>
                         </li>
-                        <li class="mb-2">
-                            <a href="/dashboard/user-profil" class="dropdown-item border-radius-md"><i
-                                    class="fa-solid fa-user"></i>
-                                Profil</a>
-                        </li>
+                        @hasrole('Guru')
+                            <li class="mb-2">
+                                <a href="/dashboard/user-profil" class="dropdown-item border-radius-md"><i
+                                        class="fa-solid fa-user"></i>
+                                    Profil</a>
+                            </li>
+                        @endhasrole
                         <li class="mb-2">
                             <button class=" dropdown-item border-radius-md" type="button" data-bs-toggle="modal"
                                 data-bs-target="#logoutModal">

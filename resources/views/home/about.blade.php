@@ -48,7 +48,7 @@
                     <p>
                 </div>
                 <div class="col-md-5">
-                    <img src="/assets/img/tarfal.png" class="img-fluid" alt="#">
+                    <img src="/assets/img/guru.jpeg" class="img-fluid" alt="#">
                 </div>
             </div>
         </div>

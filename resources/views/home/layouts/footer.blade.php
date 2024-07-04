@@ -58,9 +58,7 @@
                         <ul>
                             <li><a href="/">Home</a></li>
                             <li><a href="/about">About</a></li>
-                            <li><a href="">Blog </a></li>
-                            <li><a href="">Gallery</a></li>
-                            <li><a href="">Contact</a></li>
+                            <li><a href="/contact">Contact</a></li>
                         </ul>
                     </div>
                 </div>
@@ -68,18 +66,19 @@
                     <div class="sitemap">
                         <h3>Akademik</h3>
                         <ul>
-                            <li><a href="">Guru</a></li>
+                            <li><a href="pengumuman">Pengumuman</a></li>
+                            {{-- <li><a href="">Guru</a></li>
                             <li><a href="">Siswa </a></li>
-                            <li><a href="">Pengumuman</a></li>
+                            
                             <li><a href="">Agenda</a></li>
-                            <li><a href="">Download</a></li>
+                            <li><a href="">Download</a></li> --}}
                         </ul>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="address">
                         <h3>Hubungi Kami</h3>
-                        <p><span>Alamat: </span> Jl. M Amin Fauzi Perum Al-Baria Blok C No.07 Kelurahan Gandus Kecamatan
+                        <p><span>Alamat: </span> Jl. M Amin Fauzi Perum Al-Baria Blok C No.07 Kecamatan
                             Gandus Kota Palembang</p>
                         <p>Email : tknurulilmi06@gmail.com
                             <br> Phone : 08117196655

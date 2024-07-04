@@ -18,8 +18,12 @@
                                 <a class="nav-link" href="/about">About</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="" data-toggle="modal" data-target="#login">Login</a>
+                                <a class="nav-link" href="/contact">Contact</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/pengumuman">Pengumuman</a>
+                            </li>
+
                             {{-- <li class="nav-item">
                                 <a class="nav-link" href="">Guru</a>
                             </li>
@@ -30,9 +34,6 @@
                                 <a class="nav-link" href="">Blog</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="">Pengumuman</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link" href="">Agenda</a>
                             </li>
                             <li class="nav-item">
@@ -41,9 +42,16 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="">Gallery</a>
                             </li>
+                         --}}
+
                             <li class="nav-item">
-                                <a class="nav-link" href="">Contact</a>
-                            </li> --}}
+                                @if (Auth::check())
+                                    <a class="nav-link" href="/dashboard">Dashboard</a>
+                                @else
+                                    <a class="nav-link" href="" data-toggle="modal"
+                                        data-target="#login">Login</a>
+                                @endif
+                            </li>
                         </ul>
                     </div>
                 </nav>

@@ -52,38 +52,6 @@
         </div>
     </section>
     <!--//END ABOUT -->
-    <!--============================= OUR COURSES =============================-->
-    {{-- <section class="our_courses">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2>Artikel Terbaru</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
-                    <div class="courses_box mb-4">
-                        <div class="course-img-wrap">
-                            <img src="" class="img-fluid" alt="courses-img">
-                        </div>
-                        <!-- // end .course-img-wrap -->
-                        <a href="" class="course-box-content">
-                            <h3 style="text-align:center;">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Sint odio laboriosam cupiditate soluta, officia, quisquam facilis reprehenderit cum
-                                nobis voluptate quae! Possimus fuga, harum reiciendis deleniti error molestiae non
-                                corporis.</h3>
-                        </a>
-                    </div>
-                </div>
-            </div> <br>
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <a href="" class="btn btn-default btn-courses">View More</a>
-                </div>
-            </div>
-        </div>
-    </section> --}}
-    <!--//END OUR COURSES -->
     <!--============================= EVENTS =============================-->
     {{-- <section class="event">
         <div class="container">
@@ -95,8 +63,8 @@
                                     alt="event-img">
                             </div><!-- // end .col-sm-3 -->
                             <div class="col-sm-9">
-                                <h3><a href="#">sfgsdgsd</a></h3>
-                                <span>28-02-2001</span>
+                                <h3><a href="#">PPDB</a></h3>
+                                <span>17-07-2001</span>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos laboriosam deleniti
                                     possimus, laudantium ipsam consequatur corporis ex autem nobis ipsa eius tenetur
                                     sapiente similique quae nisi, consectetur ad magni pariatur!</p>
@@ -114,7 +82,7 @@
                                 </div>
                             </div>
                             <div class="date-description">
-                                <h3><a href="">agenda></a></h3>
+                                <h3><a href="">PPDB</a></h3>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque omnis perferendis
                                     possimus accusamus, ipsum aut quia culpa minima, officiis, eligendi minus dolores
                                     iusto quos quidem optio reprehenderit quo corporis a.</p>
@@ -122,7 +90,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

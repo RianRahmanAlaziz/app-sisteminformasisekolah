@@ -77,4 +77,14 @@ class UserController extends Controller
             return redirect('/dashboard/data-user-management')->with('error', 'Gagal menghapus User. Silakan coba lagi.');
         }
     }
+
+
+    public function profil()
+    {
+        return view('dashboard.user.user-profil', [
+            'title' => 'User Management',
+            'user' => User::paginate(5),
+            'roles' => Role::all()
+        ]);
+    }
 }

@@ -20,4 +20,18 @@ class HomeController extends Controller
             'title' => 'About',
         ]);
     }
+
+    public function contact()
+    {
+        return view('home.contact', [
+            'title' => 'Contact',
+        ]);
+    }
+
+    public function pengumuman()
+    {
+        return view('home.pengumuman', [
+            'title' => 'Pengumuman',
+        ]);
+    }
 }
