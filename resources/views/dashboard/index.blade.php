@@ -12,8 +12,8 @@
         </div>
         <hr class="my-0">
         <div class="row mt-4">
-            {{-- pegawai jumlah --}}
-            <div class="col-xl-3 col-sm-6 mb-xl-0">
+            {{-- walikelas jumlah --}}
+            {{-- <div class="col-xl-3 col-sm-6 mb-xl-0">
                 <div class="card border shadow-lg mb-4">
                     <div class="card-body text-start p-3 w-100">
                         <div
@@ -35,8 +35,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            {{-- pegawai hadir --}}
+            </div> --}}
+            {{-- siswa  --}}
             <div class="col-xl-3 col-sm-6 mb-xl-0">
                 <div class="card border shadow-lg mb-4">
                     <div class="card-body text-start p-3 w-100">
@@ -53,14 +53,14 @@
                             <div class="col-12">
                                 <div class="w-100">
                                     <p class="text-sm text-secondary mb-1">Jumlah Murid</p>
-                                    <h4 class="mb-2 font-weight-bold">0</h4>
+                                    <h4 class="mb-2 font-weight-bold">{{ $murid }}</h4>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            {{-- pegawai terlambat --}}
+            {{-- guru --}}
             <div class="col-xl-3 col-sm-6 mb-xl-0">
                 <div class="card border shadow-lg mb-4">
                     <div class="card-body text-start p-3 w-100">
@@ -76,7 +76,7 @@
                             <div class="col-12">
                                 <div class="w-100">
                                     <p class="text-sm text-secondary mb-1">Jumlah Guru</p>
-                                    <h4 class="mb-2 font-weight-bold">0</h4>
+                                    <h4 class="mb-2 font-weight-bold">{{ $guru }}</h4>
                                 </div>
                             </div>
                         </div>

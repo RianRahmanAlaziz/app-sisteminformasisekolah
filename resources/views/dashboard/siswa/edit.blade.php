@@ -43,11 +43,11 @@
                             <div class="form-group">
                                 <label for="kelas_id">Kelas</label>
                                 <select class="form-select" name="kelas_id">
-                                    @foreach ($kelas as $kelas)
-                                        @if (old('kelas_id', $kelas->kelas_id) == $kelas->id)
-                                            <option value="{{ $kelas->id }}" selected>{{ $kelas->nama }}</option>
+                                    @foreach ($kelas as $item)
+                                        @if (old('kelas_id', $item->kelas_id) == $item->id)
+                                            <option value="{{ $item->id }}" selected>{{ $item->nama }}</option>
                                         @else
-                                            <option value="{{ $kelas->id }}">{{ $kelas->nama }}</option>
+                                            <option value="{{ $item->id }}">{{ $item->nama }}</option>
                                         @endif
                                     @endforeach
                                 </select>

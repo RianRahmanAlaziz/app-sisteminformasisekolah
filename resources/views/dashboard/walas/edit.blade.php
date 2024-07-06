@@ -16,11 +16,11 @@
                             <div class="form-group">
                                 <label for="guru_id">Guru</label>
                                 <select class="form-select" name="guru_id">
-                                    @foreach ($guru as $guru)
-                                        @if (old('guru_id', $item->guru_id) == $guru->id)
-                                            <option value="{{ $guru->id }}" selected>{{ $guru->nama }}</option>
+                                    @foreach ($guru as $gr)
+                                        @if (old('guru_id', $item->guru_id) == $gr->id)
+                                            <option value="{{ $gr->id }}" selected>{{ $gr->nama }}</option>
                                         @else
-                                            <option value="{{ $guru->id }}">{{ $guru->nama }}</option>
+                                            <option value="{{ $gr->id }}">{{ $gr->nama }}</option>
                                         @endif
                                     @endforeach
                                 </select>
@@ -28,11 +28,11 @@
                             <div class="form-group">
                                 <label for="kelas_id">Kelas</label>
                                 <select class="form-select" name="kelas_id">
-                                    @foreach ($kelas as $kelas)
-                                        @if (old('kelas_id', $item->kelas_id) == $kelas->id)
-                                            <option value="{{ $kelas->id }}" selected>{{ $kelas->nama }}</option>
+                                    @foreach ($kelas as $kl)
+                                        @if (old('kelas_id', $item->kelas_id) == $kl->id)
+                                            <option value="{{ $kl->id }}" selected>{{ $kl->nama }}</option>
                                         @else
-                                            <option value="{{ $kelas->id }}">{{ $kelas->nama }}</option>
+                                            <option value="{{ $kl->id }}">{{ $kl->nama }}</option>
                                         @endif
                                     @endforeach
                                 </select>
