@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Kelas;
 use App\Models\Siswa;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
@@ -36,10 +37,12 @@ class SiswaController extends Controller
     {
 
         $validator = $request->validate([
+            'email' => 'required',
             'nama' => 'required',
             'n_ortu' => 'required',
             'kelas_id' => 'required',
             'gambar' => 'required|image|mimes:jpg,png,jpeg,webp',
+            'f_ortu' => 'required|image|mimes:jpg,png,jpeg,webp',
             'no_hp' => 'required',
             'alamat' => 'required',
         ]);
@@ -50,6 +53,27 @@ class SiswaController extends Controller
             $gambar->move('assets/img/siswa', $nama_gambar);
             $validator['gambar'] = $nama_gambar;
         }
+
+        if ($request->has('f_ortu')) {
+            $f_ortu = $request->file('f_ortu');
+            $nama_f_ortu = time() . rand(1, 9) . '.' . $f_ortu->getClientOriginalExtension();
+            $f_ortu->move('assets/img/siswa', $nama_f_ortu);
+            $validator['f_ortu'] = $nama_f_ortu;
+        }
+
+        $data = [
+            'name' => $request->nama,
+            'email' => $request->email,
+            'password' => bcrypt('112233'),
+            'email_verified_at' => now()
+        ];
+
+
+        $user = User::create($data);
+        $user->assignRole('Wali Siswa');
+
+        $a = User::all()->last();
+        $validator['user_id'] = $a->id;
 
         Siswa::create($validator);
         return redirect('/dashboard/data-siswa')->with('success', 'Data Siswa Berhasil di Tambahkan');

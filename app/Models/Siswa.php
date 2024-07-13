@@ -17,6 +17,10 @@ class Siswa extends Model
 
     public function nilai()
     {
-        return $this->hasMany(Nilai::class);
+        return $this->hasOne(Nilai::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

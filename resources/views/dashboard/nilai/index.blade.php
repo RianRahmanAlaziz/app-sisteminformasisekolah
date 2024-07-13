@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.app')
 @section('container')
     <div class="container-fluid py-4 px-5">
-        <form action="/dashboard/data-nilai" method="POST">
+        <form action="/dashboard/input-nilai" method="POST">
             @csrf
             <div class="row my-4">
                 <div class="col-lg-4 col-md-6 mb-md-0 mb-4">
@@ -11,8 +11,21 @@
                         </div>
                         <div class="card-body py-3">
                             <div class="form-group">
+                                <label for="kelas_id">Kelas</label>
+                                <select class="form-select" name="kelas_id" id="kelas_id" required>
+                                    <option disabled selected>Pilih Kelas</option>
+                                    @foreach ($kelas as $kls)
+                                        @if (old('kelas_id') == $kls->id)
+                                            <option value="{{ $kls->id }}" selected>{{ $kls->nama }}</option>
+                                        @else
+                                            <option value="{{ $kls->id }}">{{ $kls->nama }}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <label for="siswa_id">Siswa</label>
-                                <select class="form-select" name="siswa_id" required>
+                                <select class="form-select" name="siswa_id" id="siswa_id" required>
                                     <option disabled selected>Pilih Siswa</option>
                                     @foreach ($siswa as $item)
                                         @if (old('siswa_id') == $item->id)
@@ -103,3 +116,69 @@
         </form>
     </div>
 @endsection
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#kelas_id').change(function() {
+            var kelasID = $(this).val();
+            if (kelasID) {
+                $.ajax({
+                    url: '/getSiswa/' + kelasID,
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        $('#siswa_id').empty();
+                        $('#siswa_id').append(
+                            '<option disabled selected>Pilih Siswa</option>');
+                        $.each(data, function(key, value) {
+                            $('#siswa_id').append('<option value="' + value.id +
+                                '">' + value.nama + '</option>');
+                        });
+                    }
+                });
+            } else {
+                $('#siswa_id').empty();
+                $('#siswa_id').append('<option disabled selected>Pilih Siswa</option>');
+            }
+        });
+
+        // $('#siswa_id').change(function() {
+        //     var siswaID = $(this).val();
+        //     if (siswaID) {
+        //         $.ajax({
+        //             url: '/getNilai/' + siswaID,
+        //             type: "GET",
+        //             dataType: "json",
+        //             success: function(data) {
+        //                 console.log(data);
+        //                 var tableBody = $('table tbody');
+        //                 tableBody.empty();
+        //                 if (data.length > 0) {
+        //                     $.each(data, function(index, value) {
+        //                         var row = `<tr>
+        //                         <td class="text-center align-middle text-secondary text-sm font-weight-normal">${index + 1}</td>
+        //                         <td class="align-middle">
+        //                             <span class="text-secondary text-sm font-weight-normal">${value.pelajaran.nama}</span>
+        //                         </td>
+        //                         <td class="align-middle">
+        //                             <span class="text-secondary text-sm font-weight-normal">${value.nilai}</span>
+        //                         </td>
+        //                     </tr>`;
+        //                         tableBody.append(row);
+        //                     });
+        //                 } else {
+        //                     tableBody.append(
+        //                         '<tr><td colspan="3" class="text-center text-secondary text-xs font-weight-semibold opacity-7">Data Kosong</td></tr>'
+        //                     );
+        //                 }
+        //             }
+        //         });
+        //     } else {
+        //         $('table tbody').empty().append(
+        //             '<tr><td colspan="3" class="text-center text-secondary text-xs font-weight-semibold opacity-7">Data Kosong</td></tr>'
+        //         );
+        //     }
+        // });
+    });
+</script>

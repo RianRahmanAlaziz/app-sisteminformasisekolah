@@ -11,12 +11,12 @@
                                 <p class="mb-0 text-sm">
                                 </p>
                             </div>
-                            <div class="col-6 text-end">
+                            {{-- <div class="col-6 text-end">
                                 <button type="button" class="btn btn-dark btn-primary" data-bs-toggle="modal"
                                     data-bs-target="#adduser">
                                     <i class="fas fa-user-plus me-2"></i> Add User
                                 </button>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                     <div class="table-responsive">
@@ -59,9 +59,9 @@
                                                 data-bs-target="#edituser-{{ $item->id }}"><i
                                                     class="fa-solid fa-pencil"></i></button>
 
-                                            <button class="btn" type="button" data-bs-toggle="modal"
+                                            {{-- <button class="btn" type="button" data-bs-toggle="modal"
                                                 data-bs-target="#modal-hapus-{{ $item->id }}"><i
-                                                    class="fa-solid fa-trash"></i></button>
+                                                    class="fa-solid fa-trash"></i></button> --}}
                                         </td>
                                     </tr>
                                 @empty

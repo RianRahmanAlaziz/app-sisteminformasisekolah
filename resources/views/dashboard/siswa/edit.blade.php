@@ -15,7 +15,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="nama">Nama Lengkap</label>
+                                        <label for="nama">Nama Siswa</label>
                                         <input type="text" class="form-control @error('nama') is-invalid @enderror"
                                             name="nama" id="nama" required autofocus
                                             value="{{ old('nama', $item->nama) }}">
@@ -28,7 +28,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="n_ortu">Nama Orang Tua</label>
+                                        <label for="n_ortu">Nama Wali Siswa</label>
                                         <input type="text" class="form-control @error('n_ortu') is-invalid @enderror"
                                             name="n_ortu" id="n_ortu" required autofocus
                                             value="{{ old('n_ortu', $item->n_ortu) }}">
@@ -40,17 +40,40 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="kelas_id">Kelas</label>
-                                <select class="form-select" name="kelas_id">
-                                    @foreach ($kelas as $item)
-                                        @if (old('kelas_id', $item->kelas_id) == $item->id)
-                                            <option value="{{ $item->id }}" selected>{{ $item->nama }}</option>
-                                        @else
-                                            <option value="{{ $item->id }}">{{ $item->nama }}</option>
-                                        @endif
-                                    @endforeach
-                                </select>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="kelas_id">Kelas</label>
+                                        <select class="form-select" name="kelas_id">
+                                            @foreach ($kelas as $kls)
+                                                @if (old('kelas_id', $kls->kelas_id) == $kls->id)
+                                                    <option value="{{ $kls->id }}" selected>{{ $kls->nama }}
+                                                    </option>
+                                                @else
+                                                    <option value="{{ $kls->id }}">{{ $kls->nama }}</option>
+                                                @endif
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="no_hp">No Telepon Wali Siswa</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text" id="basic-addon1">+62</span>
+                                            <input type="tel"
+                                                class="form-control @error('no_hp') is-invalid @enderror" name="no_hp"
+                                                id="no_hp" required autofocus
+                                                value="{{ old('no_hp', $item->no_hp) }}" maxlength="13"
+                                                placeholder="812-3456-7891">
+                                        </div>
+                                        @error('no_hp')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
@@ -68,16 +91,11 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="no_hp">No Telepon</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text" id="basic-addon1">+62</span>
-                                            <input type="tel"
-                                                class="form-control @error('no_hp') is-invalid @enderror" name="no_hp"
-                                                id="no_hp" required autofocus
-                                                value="{{ old('no_hp', $item->no_hp) }}" maxlength="13"
-                                                placeholder="812-3456-7891">
-                                        </div>
-                                        @error('no_hp')
+                                        <label for="f_ortu">Foto Wali Siswa</label>
+                                        <input type="file"
+                                            class="form-control  @error('f_ortu') is-invalid @enderror" name="f_ortu"
+                                            id="f_ortu">
+                                        @error('f_ortu')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>

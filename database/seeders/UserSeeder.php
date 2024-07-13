@@ -41,6 +41,14 @@ class UserSeeder extends Seeder
                 'name' => 'Guru'
             ]
         );
+        $roleguru = Role::updateOrCreate(
+            [
+                'name' => 'Wali Siswa'
+            ],
+            [
+                'name' => 'Wali Siswa'
+            ]
+        );
         $permission = Permission::updateOrCreate(
             [
                 'name' => 'viewAdmin'

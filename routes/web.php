@@ -26,14 +26,21 @@ Route::controller(LoginController::class)->group(function () {
     Route::get('/login', 'index')->name('login');
     Route::post('/login', 'login');
     Route::post('/logout', 'logout');
-});;
+});
+
+Route::get('/getSiswa/{kelas_id}', [NilaiController::class, 'getSiswa']);
+Route::get('/getNilai/{siswa_id}', [NilaiController::class, 'getNilai']);
+
+
 Route::middleware('auth')->prefix('dashboard')->group(function () {
     Route::get('/', [DashboardController::class, 'index']);
     Route::resource('/data-user-management', UserController::class);
     Route::get('/user-profil', [UserController::class, 'profil']);
     Route::put('/updateprofil/{id}', [DashboardController::class, 'updateprofil']);
 
-    Route::resource('/data-nilai', NilaiController::class);
+    Route::resource('/input-nilai', NilaiController::class);
+    Route::get('/data-nilai', [NilaiController::class, 'daftar']);
+    Route::get('/nilai', [NilaiController::class, 'nilai']);
 
     Route::resource('/data-guru', GuruController::class);
     Route::resource('/data-siswa', SiswaController::class);

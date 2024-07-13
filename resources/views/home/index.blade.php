@@ -14,7 +14,7 @@
                             <img class="d-block" src="/assets/img/slider/{{ $slider->gambar }}"
                                 alt="Slide {{ $key + 1 }}" style="width: 2000px; height: 550px !important;">
                             <div class="carousel-caption d-md-block">
-                                <div class="slider_title">
+                                <div class="slider_title" style="margin: 140px !important">
                                     <h1>{{ $slider->nama_slider }}</h1>
                                     <h4>{!! nl2br(e($slider->deskripsi)) !!}</h4>
                                 </div>
@@ -46,7 +46,25 @@
 
                 </div>
                 <div class="col-md-4">
-                    <img src="theme/img/ss.png" class="img-fluid about-img" alt="#">
+                    <img src="/assets/img/guru.jpeg" class="img-fluid about-img" alt="Gambar Selamat Datang"
+                        style="border-radius: 0; width: 100%; height: 100%; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr style="border: 1px solid #ccc; margin: 50px 0;">
+
+    <!--============================= MAP =============================-->
+    <section class="map" style="padding: 45px 0;">
+        <div class="container">
+            <h2 style="margin-top: 0.5px; margin-bottom: 20px;"><strong>Lokasi Kami</strong></h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3377.337853811065!2d104.69919167414557!3d-3.0070084399262367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e3b9f6dadb1e815%3A0x60ea248d68713041!2sTK.%20Nurul%20Ilmi!5e1!3m2!1sid!2sid!4v1701973263518!5m2!1sid!2sid"
+                        width="100%" height="650" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>

@@ -36,25 +36,71 @@
                     <span class="nav-link-text ms-1">Dashboard</span>
                 </a>
             </li>
-            {{-- Input nilai --}}
-            <li class="nav-item">
-                <a class="nav-link  {{ Request::is('dashboard/data-nilai') ? 'active' : '' }}"
-                    href="/dashboard/data-nilai">
-                    <div
-                        class="icon icon-shape icon-sm px-0 text-center d-flex align-items-center justify-content-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 576 512">
-                            <!-- Bagian pertama -->
-                            <path class="color-background" fill="#000000"
-                                d="M0 64C0 28.7 28.7 0 64 0H224V128c0 17.7 14.3 32 32 32H384V299.6l-94.7 94.7c-8.2 8.2-14 18.5-16.8 29.7l-15 60.1c-2.3 9.4-1.8 19 1.4 27.8H64c-35.3 0-64-28.7-64-64V64zm384 64H256V0L384 128z" />
-                            <!-- Bagian kedua -->
-                            <path class="color-foreground" fill="#000000"
-                                d="M549.8 235.7l14.4 14.4c15.6 15.6 15.6 40.9 0 56.6l-29.4 29.4-71-71 29.4-29.4c15.6-15.6 40.9-15.6 56.6 0zM311.9 417L441.1 287.8l71 71L382.9 487.9c-4.1 4.1-9.2 7-14.9 8.4l-60.1 15c-5.5 1.4-11.2-.2-15.2-4.2s-5.6-9.7-4.2-15.2l15-60.1c1.4-5.6 4.3-10.8 8.4-14.9z" />
-                        </svg>
+            @hasrole('Guru')
+                {{-- Input nilai --}}
+                <li class="nav-item">
+                    <a class="nav-link  {{ Request::is('dashboard/input-nilai') ? 'active' : '' }}"
+                        href="/dashboard/input-nilai">
+                        <div
+                            class="icon icon-shape icon-sm px-0 text-center d-flex align-items-center justify-content-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 576 512">
+                                <!-- Bagian pertama -->
+                                <path class="color-background" fill="#000000"
+                                    d="M0 64C0 28.7 28.7 0 64 0H224V128c0 17.7 14.3 32 32 32H384V299.6l-94.7 94.7c-8.2 8.2-14 18.5-16.8 29.7l-15 60.1c-2.3 9.4-1.8 19 1.4 27.8H64c-35.3 0-64-28.7-64-64V64zm384 64H256V0L384 128z" />
+                                <!-- Bagian kedua -->
+                                <path class="color-foreground" fill="#000000"
+                                    d="M549.8 235.7l14.4 14.4c15.6 15.6 15.6 40.9 0 56.6l-29.4 29.4-71-71 29.4-29.4c15.6-15.6 40.9-15.6 56.6 0zM311.9 417L441.1 287.8l71 71L382.9 487.9c-4.1 4.1-9.2 7-14.9 8.4l-60.1 15c-5.5 1.4-11.2-.2-15.2-4.2s-5.6-9.7-4.2-15.2l15-60.1c1.4-5.6 4.3-10.8 8.4-14.9z" />
+                            </svg>
 
-                    </div>
-                    <span class="nav-link-text ms-1">Input Nilai</span>
-                </a>
-            </li>
+                        </div>
+                        <span class="nav-link-text ms-1">Input Nilai</span>
+                    </a>
+                </li>
+                {{-- Daftar nilai --}}
+                <li class="nav-item">
+                    <a class="nav-link  {{ Request::is('dashboard/data-nilai') ? 'active' : '' }}"
+                        href="/dashboard/data-nilai">
+                        <div
+                            class="icon icon-shape icon-sm px-0 text-center d-flex align-items-center justify-content-center">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 576 512">
+                                <!-- Bagian pertama: bingkai utama -->
+                                <path class="color-foreground" fill="#000000"
+                                    d="M64 80c-8.8 0-16 7.2-16 16V416c0 8.8 7.2 16 16 16H512c8.8 0 16-7.2 16-16V96c0-8.8-7.2-16-16-16H64zM0 96C0 60.7 28.7 32 64 32H512c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96z" />
+
+                                <!-- Bagian kedua: elemen lainnya -->
+                                <path class="color-background" fill="#000000"
+                                    d="M96 160a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm104 0c0-13.3 10.7-24 24-24H448c13.3 0 24 10.7 24 24s-10.7 24-24 24H224c-13.3 0-24-10.7-24-24zm0 96c0-13.3 10.7-24 24-24H448c13.3 0 24 10.7 24 24s-10.7 24-24 24H224c-13.3 0-24-10.7-24-24zm0 96c0-13.3 10.7-24 24-24H448c13.3 0 24 10.7 24 24s-10.7 24-24 24H224c-13.3 0-24-10.7-24-24zm-72-64a32 32 0 1 1 0-64 32 32 0 1 1 0 64zM96 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z" />
+                            </svg>
+
+                        </div>
+                        <span class="nav-link-text ms-1">Daftar Nilai</span>
+                    </a>
+                </li>
+            @endhasrole
+
+            @hasrole('Wali Siswa')
+                {{-- Daftar nilai --}}
+                <li class="nav-item">
+                    <a class="nav-link  {{ Request::is('dashboard/nilai') ? 'active' : '' }}" href="/dashboard/nilai">
+                        <div
+                            class="icon icon-shape icon-sm px-0 text-center d-flex align-items-center justify-content-center">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 576 512">
+                                <!-- Bagian pertama: bingkai utama -->
+                                <path class="color-foreground" fill="#000000"
+                                    d="M64 80c-8.8 0-16 7.2-16 16V416c0 8.8 7.2 16 16 16H512c8.8 0 16-7.2 16-16V96c0-8.8-7.2-16-16-16H64zM0 96C0 60.7 28.7 32 64 32H512c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96z" />
+
+                                <!-- Bagian kedua: elemen lainnya -->
+                                <path class="color-background" fill="#000000"
+                                    d="M96 160a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm104 0c0-13.3 10.7-24 24-24H448c13.3 0 24 10.7 24 24s-10.7 24-24 24H224c-13.3 0-24-10.7-24-24zm0 96c0-13.3 10.7-24 24-24H448c13.3 0 24 10.7 24 24s-10.7 24-24 24H224c-13.3 0-24-10.7-24-24zm0 96c0-13.3 10.7-24 24-24H448c13.3 0 24 10.7 24 24s-10.7 24-24 24H224c-13.3 0-24-10.7-24-24zm-72-64a32 32 0 1 1 0-64 32 32 0 1 1 0 64zM96 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z" />
+                            </svg>
+
+                        </div>
+                        <span class="nav-link-text ms-1">Daftar Nilai</span>
+                    </a>
+                </li>
+            @endhasrole
 
             @hasrole('Admin')
                 {{-- user management --}}

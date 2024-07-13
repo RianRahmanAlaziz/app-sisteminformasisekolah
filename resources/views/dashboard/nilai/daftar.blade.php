@@ -7,12 +7,12 @@
                     <div class="card-header border-bottom pb-0">
                         <div class="d-sm-flex align-items-center">
                             <div>
-                                <h6 class="font-weight-semibold text-lg mb-0">List Siswa</h6>
+                                <h6 class="font-weight-semibold text-lg mb-0">Rekap Nilai</h6>
                                 <p class="text-sm"></p>
                             </div>
                             <div class="ms-auto d-flex">
-                                <button type="button" class="btn btn-sm btn-dark btn-icon d-flex align-items-center me-2"
-                                    data-bs-toggle="modal" data-bs-target="#addguru">
+                                <a href="/dashboard/input-nilai" type="button"
+                                    class="btn btn-sm btn-dark btn-icon d-flex align-items-center me-2">
                                     <span class="btn-inner--icon">
                                         <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"
                                             viewBox="0 0 24 24" fill="currentColor" class="d-block me-2">
@@ -20,8 +20,8 @@
                                                 d="M6.25 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM3.25 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM19.75 7.5a.75.75 0 00-1.5 0v2.25H16a.75.75 0 000 1.5h2.25v2.25a.75.75 0 001.5 0v-2.25H22a.75.75 0 000-1.5h-2.25V7.5z" />
                                         </svg>
                                     </span>
-                                    <span class="btn-inner--text">Add Siswa</span>
-                                </button>
+                                    <span class="btn-inner--text">Input Nilai</span>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -46,73 +46,60 @@
                             <table class="table table-hover align-items-center mb-0">
                                 <thead class="bg-gray-100">
                                     <tr>
-                                        <th class="text-secondary text-xs font-weight-semibold opacity-7" width="5%">No
+                                        <th rowspan="2" class="text-secondary text-xs font-weight-semibold opacity-7"
+                                            width="5%">No
                                         </th>
-                                        <th class="text-secondary text-xs font-weight-semibold opacity-7">Nama
+                                        <th rowspan="2"
+                                            class="text-secondary  text-xs font-weight-semibold opacity-7 ps-2"
+                                            width="10%">Nama Siswa
                                         </th>
-                                        <th class="text-secondary text-xs font-weight-semibold text-center opacity-7 ps-2">
-                                            Kelas
+                                        <th colspan="{{ count($pelajarans) }}"
+                                            class="text-secondary text-center text-xs font-weight-semibold opacity-7 ps-2">
+                                            Mata
+                                            Pelajaran
                                         </th>
-                                        <th class="text-secondary text-xs font-weight-semibold opacity-7 ps-2">Nama
-                                            Wali Siswa
+                                        <th rowspan="2" width="10%"
+                                            class="text-secondary text-center text-xs font-weight-semibold opacity-7 ps-2">
+                                            Aksi
                                         </th>
-                                        <th class="text-secondary text-xs font-weight-semibold opacity-7 ps-2">
-                                            Alamat</th>
-                                        <th class="text-secondary text-xs font-weight-semibold opacity-7 ps-2">
-                                            No Telepon</th>
-                                        <th class="text-center text-secondary text-xs font-weight-semibold opacity-7">Aksi
-                                        </th>
+                                    </tr>
+                                    <tr>
+                                        @foreach ($pelajarans as $p)
+                                            <th class="text-secondary text-center text-xs font-weight-semibold opacity-7">
+                                                {{ $p->nama }}
+                                            </th>
+                                        @endforeach
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ($siswa as $item)
+                                    @forelse ($siswa as $index => $item)
                                         <tr>
                                             <td class="text-center align-middle text-secondary text-sm font-weight-normal">
                                                 {{ ($siswa->currentPage() - 1) * $siswa->perPage() + $loop->iteration }}
                                             </td>
-                                            <td>
-                                                <div class="d-flex px-2 py-1">
-                                                    <div class="d-flex align-items-center">
-                                                        <img src="/assets/img/siswa/{{ $item->gambar }}"
-                                                            class="avatar avatar-sm rounded-circle me-2" alt="user1">
-                                                    </div>
-                                                    <div class="d-flex flex-column justify-content-center ms-1">
-                                                        <h6 class="mb-0 text-sm font-weight-semibold">
-                                                            {{ $item->nama }}</h6>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span
-                                                    class="text-secondary text-sm font-weight-normal">{{ $item->kelas->nama }}</span>
-                                            </td>
                                             <td class="align-middle">
                                                 <span
-                                                    class="text-secondary text-sm font-weight-normal">{{ $item->n_ortu }}</span>
+                                                    class="text-secondary text-sm font-weight-normal">{{ $item->nama }}</span>
                                             </td>
-                                            <td class="align-middle">
-                                                <span
-                                                    class="text-secondary text-sm font-weight-normal">{{ $item->alamat }}</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <span
-                                                    class="text-secondary text-sm font-weight-normal">{{ $item->no_hp }}</span>
-                                            </td>
-                                            <td class="text-center align-middle bg-transparent border-bottom">
+                                            @foreach ($pelajarans as $p)
+                                                <td class="align-middle text-center">
+                                                    <span class="text-secondary text-sm font-weight-normal">
+                                                        {{ optional($nilai->where('siswa_id', $item->id)->where('pelajaran_id', $p->id)->first())->nilai ?? '-' }}
+                                                    </span>
+                                                </td>
+                                            @endforeach
+                                            <td class="text-center align-middle bg-transparent ">
                                                 <button type="button" class="btn" data-bs-toggle="modal"
-                                                    data-bs-target="#editsiswa-{{ $item->id }}"><i
+                                                    data-bs-target="#editnilai-{{ $item->id }}"><i
                                                         class="fa-solid fa-pencil"></i></button>
-
-                                                <button class="btn" type="button" data-bs-toggle="modal"
-                                                    data-bs-target="#modal-hapus-{{ $item->id }}"><i
-                                                        class="fa-solid fa-trash"></i></button>
                                             </td>
                                         </tr>
                                     @empty
                                         <tr>
-                                            <td colspan="7"
+                                            <td colspan="{{ count($pelajarans) + 2 }}"
                                                 class="text-center text-secondary text-xs font-weight-semibold opacity-7">
-                                                Data Kosong</td>
+                                                Data Kosong
+                                            </td>
                                         </tr>
                                     @endforelse
                                 </tbody>
@@ -144,30 +131,5 @@
         </div>
     </div>
 
-    @foreach ($siswa as $item)
-        <div class="modal fade" id="modal-hapus-{{ $item->id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog ">
-                <div class="modal-content">
-
-                    <div class="modal-body">
-                        Anda Yakin Untuk MengHapus?
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-white" data-bs-dismiss="modal">Close</button>
-                        <form action="/dashboard/data-siswa/{{ $item->id }}" method="POST">
-                            @method('DELETE')
-                            @csrf
-                            <button class="btn btn-dark" type="submit">
-                                Hapus
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endforeach
-
-    @include('dashboard.siswa.add')
-    @include('dashboard.siswa.edit')
+    @include('dashboard.nilai.edit')
 @endsection

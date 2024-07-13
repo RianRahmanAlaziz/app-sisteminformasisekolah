@@ -58,6 +58,9 @@
                         @if (auth()->user()->hasRole('Guru'))
                             <img src="/assets/img/guru/{{ auth()->user()->guru->gambar }}" class="avatar avatar-sm"
                                 alt="avatar" />
+                        @elseif (auth()->user()->hasRole('Wali Siswa'))
+                            <img src="/assets/img/siswa/{{ auth()->user()->siswa->f_ortu }}" class="avatar avatar-sm"
+                                alt="avatar" />
                         @else
                             <img src="/assets/img/team-2.jpg" class="avatar avatar-sm" alt="avatar" />
                         @endif
