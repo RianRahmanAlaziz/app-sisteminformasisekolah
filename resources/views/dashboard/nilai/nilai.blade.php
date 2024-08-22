@@ -10,7 +10,7 @@
                                 <h6 class="font-weight-semibold text-lg mb-0">Rekap Nilai</h6>
                                 <p class="text-sm"></p>
                             </div>
-                            <div class="ms-auto d-flex">
+                            {{-- <div class="ms-auto d-flex">
                                 <a href="/dashboard/input-nilai" type="button"
                                     class="btn btn-sm btn-dark btn-icon d-flex align-items-center me-2">
                                     <span class="btn-inner--icon">
@@ -22,7 +22,7 @@
                                     </span>
                                     <span class="btn-inner--text">Input Nilai</span>
                                 </a>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                     <div class="card-body px-0 py-0">
@@ -72,7 +72,7 @@
                                             @foreach ($pelajarans as $p)
                                                 <td class="align-middle text-center">
                                                     <span class="text-secondary text-sm font-weight-normal">
-                                                        {{ optional($nilai->where('siswa_id', $item->id)->where('pelajaran_id', $p->id)->first())->nilai ?? '-' }}
+                                                        {{ strtoupper(optional($nilai->where('siswa_id', $item->id)->where('pelajaran_id', $p->id)->first())->nilai ?? '-') }}
                                                     </span>
                                                 </td>
                                             @endforeach

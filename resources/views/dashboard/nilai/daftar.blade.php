@@ -84,7 +84,7 @@
                                             @foreach ($pelajarans as $p)
                                                 <td class="align-middle text-center">
                                                     <span class="text-secondary text-sm font-weight-normal">
-                                                        {{ optional($nilai->where('siswa_id', $item->id)->where('pelajaran_id', $p->id)->first())->nilai ?? '-' }}
+                                                        {{ strtoupper(optional($nilai->where('siswa_id', $item->id)->where('pelajaran_id', $p->id)->first())->nilai ?? '-') }}
                                                     </span>
                                                 </td>
                                             @endforeach

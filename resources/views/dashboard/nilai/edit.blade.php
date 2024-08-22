@@ -49,8 +49,9 @@
                                             <td class="align-middle">
                                                 <span class="text-secondary text-sm font-weight-normal"> <input
                                                         name="nilai[]" id="nilai" class="form-control text-center"
-                                                        type="number" placeholder="0" min="0" max="100"
-                                                        step="5" required
+                                                        type="text" maxlength="1" required
+                                                        style="text-transform: uppercase;"
+                                                        oninput="this.value = this.value.replace(/[^ABCDEabcde]/g, '')"
                                                         value="{{ $nilaiLama ? $nilaiLama->nilai : '' }}">
                                                 </span>
                                             </td>
